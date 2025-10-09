@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="description" content="A simple offline To-Do List">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ToDo List">
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>To-Do List</h1>
+            <div class="header-controls">
+                <button id="themeToggle" class="btn-secondary">🌙</button>
+                <button id="addTaskBtn" class="btn-primary">+ Add Task</button>
+            </div>
+        </header>
 
+        <main class="main-content">
+            <div id="tasksContainer" class="tasks-container">
+                <!-- Tasks will be dynamically inserted here -->
+            </div>
+            
+            <div id="emptyState" class="empty-state">
+                <p>No tasks yet. Add your first task to get started!</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Task Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Task</h2>
+                <button id="closeModal" class="close-btn">&times;</button>
+            </div>
+            <form id="taskForm">
+                <div class="form-group">
+                    <label for="taskName">Task Name *</label>
+                    <input type="text" id="taskName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskDate">Date *</label>
+                    <input type="date" id="taskDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskStartTime">Start Time</label>
+                    <input type="time" id="taskStartTime">
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskEndTime">End Time</label>
+                    <input type="time" id="taskEndTime">
+                </div>
+                
+                <div class="form-group">
+                    <label>Priority</label>
+                    <div class="priority-selectors">
+                        <div class="priority-btn low" data-priority="low">Low</div>
+                        <div class="priority-btn medium active" data-priority="medium">Medium</div>
+                        <div class="priority-btn high" data-priority="high">High</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskDescription">Description (Optional)</label>
+                    <textarea id="taskDescription" rows="3"></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" id="cancelBtn" class="btn-secondary">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+      </html>
