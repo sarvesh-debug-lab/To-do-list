@@ -139,11 +139,22 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 0.5rem;
     padding: 0.75rem;
-    transition: all 0.2s;
+    transition: all 0.3s ease, opacity 0.3s ease; /* ← Added transition for smooth fade/slide */
 }
 
 .task-card:hover {
     box-shadow: var(--shadow);
+}
+
+/* Fade and Completion Animations */
+.fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.completed {
+    opacity: 0.7;
+    text-decoration: line-through;
 }
 
 .task-card.completed {
@@ -254,7 +265,7 @@ body {
     display: none;
 }
 
-/* Modal Styles - FIXED */
+/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -321,7 +332,7 @@ body {
     height: 30px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    background: justify-content;: center;
 }
 
 .close-btn:hover {
@@ -455,4 +466,4 @@ body {
         width: 98%;
         max-height: 95vh;
     }
-  }
+    }
